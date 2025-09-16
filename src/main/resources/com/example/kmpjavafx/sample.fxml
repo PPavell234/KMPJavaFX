@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kmpjavafx.Controller">
+
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+        <HBox spacing="5">
+            <Label text="Текст:"/>
+            <TextField fx:id="textField" prefWidth="500"/>
+        </HBox>
+
+        <HBox spacing="5">
+            <Label text="Шаблон:"/>
+            <TextField fx:id="patternField" prefWidth="300"/>
+        </HBox>
+
+        <Button fx:id="searchButton" text="Найти"/>
+
+        <TextArea fx:id="logArea" prefHeight="400" wrapText="true"/>
+    </VBox>
+</AnchorPane>
