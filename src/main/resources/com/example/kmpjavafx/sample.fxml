@@ -28,7 +28,7 @@
 
     <!-- Центральная часть -->
     <center>
-        <ScrollPane fitToWidth="true" fitToHeight="true">
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true">
             <VBox fx:id="textContainer" prefWidth="700" prefHeight="500"/>
         </ScrollPane>
     </center>
