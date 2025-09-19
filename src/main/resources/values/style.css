@@ -39,3 +39,14 @@
 .scroll-bar {
     -fx-background-color: rgba(35,38,39,1);
 }
+
+/*Панель поиска
+
+ */
+.search-box{
+    -fx-background-color: rgba(35,38,39,1);
+    -fx-background-radius: 100;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}

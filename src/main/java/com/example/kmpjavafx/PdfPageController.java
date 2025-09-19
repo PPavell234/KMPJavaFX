@@ -35,6 +35,7 @@ public class PdfPageController {
                 PDFTextStripper stripper = new PDFTextStripper();
                 String text = stripper.getText(document);
                 System.out.println("PDF загружен. Длина текста: " + text.length());
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
