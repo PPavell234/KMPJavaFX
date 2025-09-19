@@ -42,6 +42,11 @@ public class Controller {
         nextButton.setOnAction(event -> moveToMatch(1));
     }
 
+    @FXML
+    private void clickMouseMethodOne(){
+
+    }
+
     private void loadPdf() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
