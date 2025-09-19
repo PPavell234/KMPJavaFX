@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -32,21 +33,17 @@
                   <Insets bottom="300.0" left="200.0" right="200.0" top="105.0" />
                </BorderPane.margin>
                <center>
-                  <VBox alignment="CENTER" prefHeight="416.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="639.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label prefHeight="24.0" prefWidth="295.0" stylesheets="@../../../values/style.css" text="Длина текста состовялет:" textFill="#8d8d8d">
-                           <padding>
-                              <Insets bottom="1.0" top="15.0" />
-                           </padding>
-                        </Label>
-                        <Label stylesheets="@../../../values/style.css" text="Работает Принцип поиск текста по КМP" textFill="#8d8d8d">
-                           <padding>
-                              <Insets bottom="30.0" top="15.0" />
-                           </padding>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
+                        <ScrollPane prefHeight="899.0" prefWidth="800.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                          </content>
+                           <VBox.margin>
+                              <Insets top="-671.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                        <VBox prefHeight="71.0" prefWidth="800.0" />
                          <HBox alignment="CENTER" spacing="10">
                              <TextField fx:id="searchField" prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
                               <HBox.margin>
@@ -67,11 +64,14 @@
                          </HBox>
                      </children>
                      <BorderPane.margin>
-                        <Insets bottom="4.0" top="258.0" />
+                        <Insets bottom="-255.0" top="141.0" />
                      </BorderPane.margin>
                      <padding>
-                        <Insets bottom="46.0" top="27.0" />
+                        <Insets bottom="-584.0" top="57.0" />
                      </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                   </VBox>
                </center>
                <padding>
@@ -87,25 +87,15 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="1206.0">
                      <HBox.margin>
-                        <Insets bottom="-3.0" top="160.0" />
+                        <Insets bottom="-3.0" left="-55.0" top="122.0" />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="29.0" fitWidth="30.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../3/light/help.png" />
+                              <Image url="@../../../1/Back.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="100.0" prefWidth="16.0" />
-                        <Label onMouseClicked="#openHelloView" prefHeight="31.0" prefWidth="470.0" text="Подробнее про алгоритм поиска в тексте Кнута,Морриса и Пратта" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="32.0" fitWidth="33.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../3/icon%2024px/chevron.png" />
-                           </image>
-                        </ImageView>
                      </children>
                      <padding>
                         <Insets left="55.0" top="1.0" />
@@ -114,6 +104,36 @@
                </children>
             </HBox>
          </top>
+         <left>
+            <VBox prefHeight="864.0" prefWidth="130.0" BorderPane.alignment="TOP_CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="403.0" left="39.0" right="-148.0" top="271.0" />
+               </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="55.0" styleClass="scroll-bar" stylesheets="@../../../values/style.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../3/icons/Arrow%20Left%202/Line.png" />
+                           </image>
+                        </ImageView>
+                        <HBox prefHeight="116.0" prefWidth="40.0" />
+                        <ImageView fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../3/icons/Arrow%20Right%202/Line.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets right="93.0" top="42.0" />
+               </padding>
+            </VBox>
+         </left>
       </BorderPane>
    </center>
 </BorderPane>
