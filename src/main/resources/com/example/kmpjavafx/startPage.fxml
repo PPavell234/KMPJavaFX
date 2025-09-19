@@ -70,18 +70,18 @@
                         <Insets bottom="-3.0" top="160.0" />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#openHelloView">
+                        <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/light/help.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="100.0" prefWidth="16.0" />
-                        <Label prefHeight="31.0" prefWidth="226.0" text="Подробнее про алгоритм КМР " textFill="WHITE" onMouseClicked="#openHelloView">
+                        <Label prefHeight="31.0" prefWidth="226.0" text="Подробнее про алгоритм КМР " textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#openHelloView">
+                        <ImageView fitHeight="32.0" fitWidth="33.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icon%2024px/chevron.png" />
                            </image>
