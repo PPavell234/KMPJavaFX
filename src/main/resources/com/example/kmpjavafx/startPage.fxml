@@ -70,13 +70,13 @@
                         <Insets bottom="-3.0" top="160.0" />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#openHelloView">
                            <image>
                               <Image url="@../../../3/light/help.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="100.0" prefWidth="16.0" />
-                        <Label prefHeight="31.0" prefWidth="226.0" text="Подробнее про алгоритм КМР " textFill="WHITE">
+                        <Label prefHeight="31.0" prefWidth="226.0" text="Подробнее про алгоритм КМР " textFill="WHITE" onMouseClicked="#openHelloView">
                            <font>
                               <Font size="15.0" />
                            </font>

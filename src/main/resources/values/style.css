@@ -19,3 +19,23 @@
     -height: 67px;
     -fx-background-color: rgba(43, 45, 48, 1)
 }
+
+
+
+/*Скрол БАР
+
+/* общий фон для самого ScrollPane */
+.scroll-pane {
+    -fx-background-color: rgba(35,38,39,1);
+    -fx-background: rgba(35,38,39,1);
+}
+
+/* фон для viewport (области, где контент) */
+.scroll-pane > .viewport {
+    -fx-background-color: rgba(35,38,39,1);
+}
+
+/* убираем белые полосы у скроллбаров */
+.scroll-bar {
+    -fx-background-color: rgba(35,38,39,1);
+}
