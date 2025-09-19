@@ -45,7 +45,7 @@ public class PdfPageController {
     private void openHelloView(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/kmpjavafx/pdfPage.fxml")
+                    getClass().getResource("/com/example/kmpjavafx/infoPage.fxml")
             );
             Parent root = loader.load();
 
