@@ -3,14 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.kmpjavafx.PdfPageController"
-            prefWidth="800" prefHeight="600">
-
-    <center>
-        <Button fx:id="loadPdfButton"
-                text="Загрузить PDF"
-                BorderPane.alignment="CENTER"/>
-    </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.PdfPageController">
+   <center>
+      <Button fx:id="loadPdfButton" mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
