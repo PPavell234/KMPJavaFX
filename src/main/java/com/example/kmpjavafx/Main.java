@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/com/example/kmpjavafx/pdfPage.fxml")
+                getClass().getResource("/com/example/kmpjavafx/startPage.fxml")
         );
         primaryStage.setTitle("Новая страница");
         primaryStage.setScene(new Scene(fxmlLoader.load(), 1200, 1100));

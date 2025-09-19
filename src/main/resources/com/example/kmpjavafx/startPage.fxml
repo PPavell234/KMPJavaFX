@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1200.0" maxWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="com.example.kmpjavafx.Controller">
+<BorderPane maxHeight="1200.0" maxWidth="1100.0" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.PdfPageController">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -16,7 +16,7 @@
         <VBox prefHeight="415.0" prefWidth="1100.0" spacing="10" BorderPane.alignment="CENTER" />
    </center>
    <top>
-      <BorderPane prefHeight="1207.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="1207.0" prefWidth="1100.0" styleClass="background" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="628.0" prefWidth="545.0" BorderPane.alignment="TOP_CENTER">
                <opaqueInsets>
@@ -28,22 +28,21 @@
                <center>
                   <VBox alignment="TOP_CENTER" prefHeight="416.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label text="Загрузить PDF Файл">
+                        <Label styleClass="text-style-1" stylesheets="@../../../values/style.css" text="Загрузить PDF Файл">
                            <padding>
                               <Insets bottom="30.0" top="15.0" />
                            </padding>
                         </Label>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../java/img/imageNew/Illustration.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Перетащите сюда PDF файл">
+                              <Image url="@../../../2/Illustration.png" />
+                           </image></ImageView>
+                        <Label styleClass="text-style-1" text="Перетащите сюда PDF файл">
                            <padding>
                               <Insets bottom="30.0" top="15.0" />
                            </padding>
                         </Label>
-                           <Button fx:id="loadPdfButton" contentDisplay="CENTER" prefHeight="25.0" prefWidth="173.0" text="Загрузить PDF" />
+                           <Button fx:id="loadPdfButton" contentDisplay="CENTER" prefHeight="25.0" prefWidth="173.0" styleClass="button-style" stylesheets="@../../../values/style.css" text="Загрузить PDF" textFill="WHITE" />
                      </children>
                      <BorderPane.margin>
                         <Insets top="250.0" />
