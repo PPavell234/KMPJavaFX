@@ -24,10 +24,12 @@ public class PdfPageController {
         loadPdfButton.setOnAction(event -> loadPdf());
     }
 
+    @FXML
     private void loadPdf() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
+                new FileChooser.ExtensionFilter("PDF files", "*.pdf")
+        );
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
@@ -35,6 +37,17 @@ public class PdfPageController {
                 PDFTextStripper stripper = new PDFTextStripper();
                 String text = stripper.getText(document);
                 System.out.println("PDF загружен. Длина текста: " + text.length());
+
+                // ✅ После успешной загрузки открываем новую страницу
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/com/example/kmpjavafx/pageNext1.fxml")
+                );
+                Parent root = loader.load();
+
+                // получаем текущее окно
+                Stage stage = (Stage) loadPdfButton.getScene().getWindow();
+                stage.setScene(new Scene(root, 1200, 1100)); // размеры подгони под себя
+                stage.show();
 
             } catch (Exception e) {
                 e.printStackTrace();

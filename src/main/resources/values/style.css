@@ -43,9 +43,11 @@
 /*Панель поиска
 
  */
-.search-box{
+.search-box {
     -fx-background-color: rgba(35,38,39,1);
     -fx-background-radius: 100;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #aaaaaa;
 }
 .transparent{
     -fx-background-color: rgba(0,0,0,0);
