@@ -25,4 +25,19 @@ public class pageNext1Contorller {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void openStarPage(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/kmpjavafx/startPage.fxml")
+            );
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

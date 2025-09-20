@@ -90,6 +90,32 @@
                         <Insets bottom="-3.0" top="160.0" />
                      </HBox.margin>
                      <children>
+                        <HBox prefHeight="111.0" prefWidth="94.0">
+                           <children>
+                              <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#openStarPage" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../1/Back.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="-78.0" top="-39.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <HBox prefHeight="136.0" prefWidth="0.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="-26.0" left="55.0" top="1.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="-12.0" right="-4.0" />
+                           </HBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
                         <ImageView fitHeight="29.0" fitWidth="30.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/light/help.png" />
