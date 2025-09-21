@@ -28,22 +28,33 @@ public class PageNext1Controller {
         String pattern = searchField.getText();
 
         if (pattern == null || pattern.isEmpty()) {
-            showMessage("Введите текст для поиска");
-            return;
-        }
-
-        if (documentText == null || documentText.isEmpty()) {
-            showMessage("Документ пустой или не загружен");
-            return;
+            return; // можно показать Alert
         }
 
         KMP kmp = new KMP();
         List<Integer> positions = kmp.search(documentText, pattern);
 
-        if (positions.isEmpty()) {
-            showMessage("Совпадений не найдено");
+        if (!positions.isEmpty()) {
+            // ✅ Совпадения найдены → открываем следующую страницу
+            openNextPage();
         } else {
-            showMessage("Совпадения найдены (" + positions.size() + ")");
+            System.out.println("Совпадений не найдено");
+        }
+    }
+
+    private void openNextPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/kmpjavafx/pageNext2.fxml")
+            );
+            Parent root = loader.load();
+
+            Stage stage = (Stage) searchField.getScene().getWindow();
+            stage.setScene(new Scene(root, 1200, 1100));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
