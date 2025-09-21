@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1000.0" maxWidth="1200.0" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.pageNext1Contorller">
+<BorderPane maxHeight="1000.0" maxWidth="1200.0" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.PageNext1Controller">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -92,7 +92,7 @@
                      <children>
                         <HBox prefHeight="111.0" prefWidth="94.0">
                            <children>
-                              <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#openStarPage" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#onSearch" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../1/Back.png" />
                                  </image>
@@ -116,18 +116,18 @@
                               <Insets />
                            </opaqueInsets>
                         </HBox>
-                        <ImageView fitHeight="29.0" fitWidth="30.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="29.0" fitWidth="30.0" onMouseClicked="#onSearch" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/light/help.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="100.0" prefWidth="16.0" />
-                        <Label onMouseClicked="#openHelloView" prefHeight="31.0" prefWidth="470.0" text="Подробнее про алгоритм поиска в тексте Кнута,Морриса и Пратта" textFill="WHITE">
+                        <Label onMouseClicked="#onSearch" prefHeight="31.0" prefWidth="470.0" text="Подробнее про алгоритм поиска в тексте Кнута,Морриса и Пратта" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="32.0" fitWidth="33.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="32.0" fitWidth="33.0" onMouseClicked="#onSearch" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icon%2024px/chevron.png" />
                            </image>
