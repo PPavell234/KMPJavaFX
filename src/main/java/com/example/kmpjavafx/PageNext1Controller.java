@@ -49,9 +49,8 @@ public class PageNext1Controller {
             );
             Parent root = loader.load();
 
-            // ✅ получаем контроллер второй страницы
             PageNext2Controller controller = loader.getController();
-            controller.setDocumentText(documentText);
+            controller.setDocumentText(documentText, searchField.getText()); // ✅ передаём и текст, и шаблон
 
             Stage stage = (Stage) searchField.getScene().getWindow();
             stage.setScene(new Scene(root, 1200, 1100));

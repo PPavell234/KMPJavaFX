@@ -38,7 +38,7 @@
                      <children>
                         <VBox prefHeight="71.0" prefWidth="800.0" />
                          <HBox alignment="CENTER" spacing="10">
-                             <TextField fx:id="searchField" prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
+                             <TextField fx:id="searchField"  prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
                               <HBox.margin>
                                  <Insets bottom="10.0" />
                               </HBox.margin>
@@ -46,7 +46,7 @@
                                  <Font size="15.0" />
                               </font>
                            </TextField>
-                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-61.0" translateY="-5.0">
+                           <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#onSearchClicked" pickOnBounds="true" preserveRatio="true" translateX="-61.0" translateY="-5.0">
                               <image>
                                  <Image url="@../../../3/Bold/Send.png" />
                               </image>
@@ -71,7 +71,7 @@
                   <Insets top="-255.0" />
                </padding>
                <top>
-                  <ScrollPane fitToWidth="true" prefHeight="862.0" prefWidth="776.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fitToWidth="true" prefHeight="632.0" prefWidth="776.0" BorderPane.alignment="CENTER">
                      <content>
                         <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
                            <opaqueInsets>
@@ -100,7 +100,7 @@
                         <Insets bottom="-3.0" left="-55.0" top="122.0" />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#initialize" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#BackIsInfoPage" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../1/Back.png" />
                            </image>
