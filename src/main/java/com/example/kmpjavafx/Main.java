@@ -12,7 +12,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 getClass().getResource("/com/example/kmpjavafx/startPage.fxml")
         );
-        primaryStage.setTitle("Новая страница");
+        primaryStage.setTitle("Курсовая работа Павел");
         primaryStage.setScene(new Scene(fxmlLoader.load(), 1200, 1100));
         primaryStage.show();
     }
