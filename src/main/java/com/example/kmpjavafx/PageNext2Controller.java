@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -25,25 +26,26 @@ public class PageNext2Controller {
 
     private String documentText = "";
 
-    // Приходит из PageNext1Controller
+    // вызывается из PageNext1Controller
     public void setDocumentText(String text, String pattern) {
         this.documentText = text;
         highlightMatches(pattern);
     }
 
-    // Обработчик клика по иконке Send.png
+    // клик по иконке Send на этой странице
     @FXML
     private void onSearchClicked(MouseEvent event) {
         String pattern = searchField.getText();
         highlightMatches(pattern);
     }
 
-    // Подсветка совпадений
     private void highlightMatches(String pattern) {
         textFlow.getChildren().clear();
 
         if (pattern == null || pattern.isEmpty() || documentText == null || documentText.isEmpty()) {
-            textFlow.getChildren().add(new Text(documentText != null ? documentText : ""));
+            Text all = new Text(documentText != null ? documentText : "");
+            all.setFill(Color.WHITE); // белый текст
+            textFlow.getChildren().add(all);
             return;
         }
 
@@ -51,7 +53,9 @@ public class PageNext2Controller {
         List<Integer> positions = kmp.search(documentText, pattern);
 
         if (positions.isEmpty()) {
-            textFlow.getChildren().add(new Text("Совпадений не найдено"));
+            Text notFound = new Text("Совпадений не найдено");
+            notFound.setFill(Color.WHITE); // белый
+            textFlow.getChildren().add(notFound);
             return;
         }
 
@@ -59,30 +63,27 @@ public class PageNext2Controller {
         int lastIndex = 0;
 
         for (int pos : positions) {
-            // обычный текст до совпадения
+            // обычный текст
             if (pos > lastIndex) {
-                textFlow.getChildren().add(new Text(documentText.substring(lastIndex, pos)));
+                Text normalText = new Text(documentText.substring(lastIndex, pos));
+                normalText.setFill(Color.WHITE); // белый текст
+                textFlow.getChildren().add(normalText);
             }
 
-            // совпадение → используем Label для подсветки фоном
-            javafx.scene.control.Label highlighted = new javafx.scene.control.Label(documentText.substring(pos, pos + patternLength));
+            // совпадение — подсветка жёлтым
+            Label highlighted = new Label(documentText.substring(pos, pos + patternLength));
             highlighted.setStyle("-fx-background-color: yellow; -fx-text-fill: black;");
-
             textFlow.getChildren().add(highlighted);
 
             lastIndex = pos + patternLength;
         }
 
-        // остаток текста
+        // остаток
         if (lastIndex < documentText.length()) {
-            textFlow.getChildren().add(new Text(documentText.substring(lastIndex)));
+            Text tail = new Text(documentText.substring(lastIndex));
+            tail.setFill(Color.WHITE); // белый текст
+            textFlow.getChildren().add(tail);
         }
-    }
-
-    // Назад (если нужно вернуться на предыдущую сцену)
-    @FXML
-    private void onBackClicked(MouseEvent event) {
-        System.out.println("Назад нажато — вернись на PageNext1 или стартовую страницу");
     }
 
 
