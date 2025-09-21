@@ -17,6 +17,8 @@ import java.io.IOException;
 
 public class PdfPageController {
 
+
+
     @FXML private Button loadPdfButton;
 
     @FXML
@@ -38,15 +40,21 @@ public class PdfPageController {
                 String text = stripper.getText(document);
                 System.out.println("PDF загружен. Длина текста: " + text.length());
 
-                // ✅ После успешной загрузки открываем новую страницу
+                // Загружаем новую страницу
                 FXMLLoader loader = new FXMLLoader(
                         getClass().getResource("/com/example/kmpjavafx/pageNext1.fxml")
                 );
                 Parent root = loader.load();
 
-                // получаем текущее окно
+                // ✅ получаем контроллер новой страницы
+                PageNext1Controller controller = loader.getController();
+
+
+                controller.setDocumentText(text); // передаём текст
+
+                // меняем сцену
                 Stage stage = (Stage) loadPdfButton.getScene().getWindow();
-                stage.setScene(new Scene(root, 1200, 1100)); // размеры подгони под себя
+                stage.setScene(new Scene(root, 1200, 1100));
                 stage.show();
 
             } catch (Exception e) {
