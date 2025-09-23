@@ -77,9 +77,10 @@ public class PageNext2Controller {
         positions = kmp.search(documentText, pattern);
 
         if (positions.isEmpty()) {
-            Text notFound = new Text("Совпадений не найдено");
-            notFound.setFill(Color.WHITE);
-            textFlow.getChildren().add(notFound);
+            // ✅ показываем весь документ белым текстом
+            Text all = new Text(documentText);
+            all.setFill(Color.WHITE);
+            textFlow.getChildren().add(all);
 
             if (matchesLabel != null) {
                 matchesLabel.setText("Количество совпадений: 0");
@@ -91,7 +92,7 @@ public class PageNext2Controller {
         }
 
         // ✅ если совпадения найдены — скрываем картинку
-        if (successImage!= null) {
+        if (successImage != null) {
             successImage.setVisible(false);
         }
 
@@ -103,6 +104,7 @@ public class PageNext2Controller {
         currentMatchIndex = 0;
         highlightCurrent(pattern);
     }
+
 
 
     private void highlightCurrent(String pattern) {
