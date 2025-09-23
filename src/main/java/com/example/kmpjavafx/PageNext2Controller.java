@@ -22,6 +22,9 @@ import java.util.List;
 public class PageNext2Controller {
 
     @FXML
+    private javafx.scene.control.Label matchesLabel;
+
+    @FXML
     private TextFlow textFlow;
 
     @FXML
@@ -57,6 +60,10 @@ public class PageNext2Controller {
             Text all = new Text(documentText != null ? documentText : "");
             all.setFill(Color.WHITE);
             textFlow.getChildren().add(all);
+
+            if (matchesLabel != null) {
+                matchesLabel.setText("Количество совпадений: 0");
+            }
             return;
         }
 
@@ -67,7 +74,16 @@ public class PageNext2Controller {
             Text notFound = new Text("Совпадений не найдено");
             notFound.setFill(Color.WHITE);
             textFlow.getChildren().add(notFound);
+
+            if (matchesLabel != null) {
+                matchesLabel.setText("Количество совпадений: 0");
+            }
             return;
+        }
+
+        // ✅ обновляем Label количеством совпадений
+        if (matchesLabel != null) {
+            matchesLabel.setText("Количество совпадений: " + positions.size());
         }
 
         // начинаем с первого совпадения
