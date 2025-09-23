@@ -93,10 +93,10 @@ public class PageNext2Controller {
         before.setFill(Color.WHITE);
         textFlow.getChildren().add(before);
 
-        // совпадение
-        Text highlighted = new Text(documentText.substring(matchPos, matchPos + patternLength));
-        highlighted.setFill(Color.BLACK);
-        highlighted.setStyle("-fx-background-color: yellow;");
+        // совпадение (Label с фоном)
+        javafx.scene.control.Label highlighted =
+                new javafx.scene.control.Label(documentText.substring(matchPos, matchPos + patternLength));
+        highlighted.setStyle("-fx-background-color: yellow; -fx-text-fill: black;");
         textFlow.getChildren().add(highlighted);
 
         // остаток
@@ -104,7 +104,7 @@ public class PageNext2Controller {
         after.setFill(Color.WHITE);
         textFlow.getChildren().add(after);
 
-        // ✅ вызываем прокрутку после отрисовки
+        // прокрутка
         Platform.runLater(() -> scrollToNode(highlighted));
     }
 
