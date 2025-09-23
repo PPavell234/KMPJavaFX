@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -26,17 +27,32 @@
    <center>
       <BorderPane prefHeight="1110.0" prefWidth="1200.0" styleClass="background" BorderPane.alignment="CENTER">
          <center>
-            <BorderPane prefHeight="1175.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="1175.0" prefWidth="787.0" BorderPane.alignment="CENTER">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <BorderPane.margin>
-                  <Insets bottom="300.0" left="200.0" right="200.0" top="105.0" />
+                  <Insets bottom="439.0" left="200.0" right="189.0" top="100.0" />
                </BorderPane.margin>
                <center>
-                  <VBox alignment="CENTER" prefHeight="639.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="1136.0" prefWidth="776.0" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="71.0" prefWidth="800.0" />
+                        <ImageView fx:id="successImage" fitHeight="28.0" fitWidth="252.0">
+                           <image>
+                              <Image url="@../../../2/Group%2034386.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="27.0" top="-18.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <VBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="776.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="254.0" text="Количество совпадений по сочетанию букв" textFill="#909090">
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children></VBox>
                          <HBox alignment="CENTER" spacing="10">
                              <TextField fx:id="searchField" prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
                               <HBox.margin>
@@ -57,7 +73,7 @@
                          </HBox>
                      </children>
                      <BorderPane.margin>
-                        <Insets bottom="-255.0" top="141.0" />
+                        <Insets bottom="-436.0" top="-17.0" />
                      </BorderPane.margin>
                      <padding>
                         <Insets bottom="-584.0" top="57.0" />
@@ -71,7 +87,7 @@
                   <Insets top="-255.0" />
                </padding>
                <top>
-                  <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="815.0" prefWidth="776.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="704.0" prefWidth="787.0" BorderPane.alignment="CENTER">
                      <content>
                         <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
                            <opaqueInsets>
@@ -83,7 +99,7 @@
                         </TextFlow>
                      </content>
                      <BorderPane.margin>
-                        <Insets bottom="-760.0" top="152.0" />
+                        <Insets bottom="-743.0" top="107.0" />
                      </BorderPane.margin>
                   </ScrollPane>
                </top>
