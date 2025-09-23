@@ -71,7 +71,7 @@
                   <Insets top="-255.0" />
                </padding>
                <top>
-                  <ScrollPane fitToWidth="true" prefHeight="632.0" prefWidth="776.0" BorderPane.alignment="CENTER">
+                  <ScrollPane  fx:id="scrollPane" fitToWidth="true" prefHeight="632.0" prefWidth="776.0" BorderPane.alignment="CENTER">
                      <content>
                         <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
                            <opaqueInsets>
@@ -125,13 +125,13 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="55.0" styleClass="scroll-bar" stylesheets="@../../../values/style.css">
                      <children>
-                        <ImageView fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView onMouseClicked="#onPrevClicked" fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icons/Arrow%20Left%202/Line.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="116.0" prefWidth="40.0" />
-                        <ImageView fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView onMouseClicked="#onNextClicked" fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icons/Arrow%20Right%202/Line.png" />
                            </image>

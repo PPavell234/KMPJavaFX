@@ -1,11 +1,13 @@
 package com.example.kmpjavafx;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -14,6 +16,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PageNext2Controller {
@@ -24,69 +27,117 @@ public class PageNext2Controller {
     @FXML
     private TextField searchField;
 
+    @FXML
+    private ScrollPane scrollPane; // ✅ добавили для автопрокрутки
+
     private String documentText = "";
+
+    private List<Integer> positions = new ArrayList<>();
+    private int currentMatchIndex = -1;
 
     // вызывается из PageNext1Controller
     public void setDocumentText(String text, String pattern) {
         this.documentText = text;
-        highlightMatches(pattern);
+        findMatches(pattern);
     }
 
-    // клик по иконке Send на этой странице
+    // поиск по кнопке Send
     @FXML
     private void onSearchClicked(MouseEvent event) {
         String pattern = searchField.getText();
-        highlightMatches(pattern);
+        findMatches(pattern);
     }
 
-    private void highlightMatches(String pattern) {
+    private void findMatches(String pattern) {
         textFlow.getChildren().clear();
+        positions.clear();
+        currentMatchIndex = -1;
 
         if (pattern == null || pattern.isEmpty() || documentText == null || documentText.isEmpty()) {
             Text all = new Text(documentText != null ? documentText : "");
-            all.setFill(Color.WHITE); // белый текст
+            all.setFill(Color.WHITE);
             textFlow.getChildren().add(all);
             return;
         }
 
         KMP kmp = new KMP();
-        List<Integer> positions = kmp.search(documentText, pattern);
+        positions = kmp.search(documentText, pattern);
 
         if (positions.isEmpty()) {
             Text notFound = new Text("Совпадений не найдено");
-            notFound.setFill(Color.WHITE); // белый
+            notFound.setFill(Color.WHITE);
             textFlow.getChildren().add(notFound);
             return;
         }
 
-        int patternLength = pattern.length();
-        int lastIndex = 0;
+        // начинаем с первого совпадения
+        currentMatchIndex = 0;
+        highlightCurrent(pattern);
+    }
 
-        for (int pos : positions) {
-            // обычный текст
-            if (pos > lastIndex) {
-                Text normalText = new Text(documentText.substring(lastIndex, pos));
-                normalText.setFill(Color.WHITE); // белый текст
-                textFlow.getChildren().add(normalText);
-            }
+    private void highlightCurrent(String pattern) {
+        textFlow.getChildren().clear();
 
-            // совпадение — подсветка жёлтым
-            Label highlighted = new Label(documentText.substring(pos, pos + patternLength));
-            highlighted.setStyle("-fx-background-color: yellow; -fx-text-fill: black;");
-            textFlow.getChildren().add(highlighted);
-
-            lastIndex = pos + patternLength;
+        if (positions.isEmpty() || currentMatchIndex < 0 || currentMatchIndex >= positions.size()) {
+            Text all = new Text(documentText);
+            all.setFill(Color.WHITE);
+            textFlow.getChildren().add(all);
+            return;
         }
 
+        int matchPos = positions.get(currentMatchIndex);
+        int patternLength = pattern.length();
+
+        // до совпадения
+        Text before = new Text(documentText.substring(0, matchPos));
+        before.setFill(Color.WHITE);
+        textFlow.getChildren().add(before);
+
+        // совпадение
+        Text highlighted = new Text(documentText.substring(matchPos, matchPos + patternLength));
+        highlighted.setFill(Color.BLACK);
+        highlighted.setStyle("-fx-background-color: yellow;");
+        textFlow.getChildren().add(highlighted);
+
         // остаток
-        if (lastIndex < documentText.length()) {
-            Text tail = new Text(documentText.substring(lastIndex));
-            tail.setFill(Color.WHITE); // белый текст
-            textFlow.getChildren().add(tail);
+        Text after = new Text(documentText.substring(matchPos + patternLength));
+        after.setFill(Color.WHITE);
+        textFlow.getChildren().add(after);
+
+        // ✅ вызываем прокрутку после отрисовки
+        Platform.runLater(() -> scrollToNode(highlighted));
+    }
+
+    private void scrollToNode(Node node) {
+        if (node == null || scrollPane == null) return;
+
+        Bounds contentBounds = node.localToScene(node.getBoundsInLocal());
+        Bounds viewportBounds = scrollPane.getViewportBounds();
+
+        double contentHeight = textFlow.getBoundsInLocal().getHeight();
+        double nodeY = contentBounds.getMinY() + scrollPane.getVvalue() * contentHeight;
+
+        double vValue = (nodeY - viewportBounds.getHeight() / 2) / contentHeight;
+        scrollPane.setVvalue(Math.max(0, Math.min(1, vValue)));
+    }
+
+    // кнопка "Вверх"
+    @FXML
+    private void onPrevClicked(MouseEvent event) {
+        if (!positions.isEmpty() && currentMatchIndex > 0) {
+            currentMatchIndex--;
+            highlightCurrent(searchField.getText());
         }
     }
 
-
+    // кнопка "Вниз"
+    @FXML
+    private void onNextClicked(MouseEvent event) {
+        if (!positions.isEmpty() && currentMatchIndex < positions.size() - 1) {
+            currentMatchIndex++;
+            highlightCurrent(searchField.getText());
+        }
+    }
 
     @FXML
     private void BackIsInfoPage(MouseEvent event) {
@@ -102,6 +153,4 @@ public class PageNext2Controller {
             e.printStackTrace();
         }
     }
-
-
 }
