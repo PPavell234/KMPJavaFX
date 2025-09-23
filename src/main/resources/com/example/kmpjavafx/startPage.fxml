@@ -35,7 +35,7 @@
                               <Font size="43.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="396.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="dropTarget" fitHeight="396.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../2/Illustration.png" />
                            </image></ImageView>
