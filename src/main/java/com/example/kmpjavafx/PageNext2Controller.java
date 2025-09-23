@@ -22,6 +22,9 @@ import java.util.List;
 public class PageNext2Controller {
 
     @FXML
+    private javafx.scene.image.ImageView successImage;
+
+    @FXML
     private javafx.scene.control.Label matchesLabel;
 
     @FXML
@@ -64,6 +67,9 @@ public class PageNext2Controller {
             if (matchesLabel != null) {
                 matchesLabel.setText("Количество совпадений: 0");
             }
+            if (successImage != null) {
+                successImage.setVisible(true); // показать картинку
+            }
             return;
         }
 
@@ -78,10 +84,17 @@ public class PageNext2Controller {
             if (matchesLabel != null) {
                 matchesLabel.setText("Количество совпадений: 0");
             }
+            if (successImage != null) {
+                successImage.setVisible(true); // показать картинку
+            }
             return;
         }
 
-        // ✅ обновляем Label количеством совпадений
+        // ✅ если совпадения найдены — скрываем картинку
+        if (successImage!= null) {
+            successImage.setVisible(false);
+        }
+
         if (matchesLabel != null) {
             matchesLabel.setText("Количество совпадений: " + positions.size());
         }
@@ -90,6 +103,7 @@ public class PageNext2Controller {
         currentMatchIndex = 0;
         highlightCurrent(pattern);
     }
+
 
     private void highlightCurrent(String pattern) {
         textFlow.getChildren().clear();

@@ -16,6 +16,7 @@ import java.util.List;
 
 public class PageNext1Controller {
 
+    //изображение не надйено
     @FXML
     private javafx.scene.image.ImageView successImage;
 
