@@ -34,7 +34,7 @@
                <center>
                   <VBox alignment="CENTER" prefHeight="416.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label prefHeight="24.0" prefWidth="295.0" stylesheets="@../../../values/style.css" text="Длина текста состовялет:" textFill="#8d8d8d">
+                        <Label  fx:id="docInfoLabel" prefHeight="24.0" prefWidth="295.0" stylesheets="@../../../values/style.css" text="Длина текста состовялет: " textFill="#8d8d8d">
                            <padding>
                               <Insets bottom="1.0" top="15.0" />
                            </padding>

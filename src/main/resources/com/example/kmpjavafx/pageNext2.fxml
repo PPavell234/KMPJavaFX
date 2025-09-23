@@ -38,7 +38,7 @@
                      <children>
                         <VBox prefHeight="71.0" prefWidth="800.0" />
                          <HBox alignment="CENTER" spacing="10">
-                             <TextField fx:id="searchField"  prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
+                             <TextField fx:id="searchField" prefHeight="35.0" prefWidth="300.0" promptText="Текст для поиска в документе" styleClass="search-box" stylesheets="@../../../values/style.css">
                               <HBox.margin>
                                  <Insets bottom="10.0" />
                               </HBox.margin>
@@ -71,7 +71,7 @@
                   <Insets top="-255.0" />
                </padding>
                <top>
-                  <ScrollPane  fx:id="scrollPane" fitToWidth="true" prefHeight="632.0" prefWidth="776.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="815.0" prefWidth="776.0" BorderPane.alignment="CENTER">
                      <content>
                         <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
                            <opaqueInsets>
@@ -125,13 +125,13 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="55.0" styleClass="scroll-bar" stylesheets="@../../../values/style.css">
                      <children>
-                        <ImageView onMouseClicked="#onPrevClicked" fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="82.0" onMouseClicked="#onPrevClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icons/Arrow%20Left%202/Line.png" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="116.0" prefWidth="40.0" />
-                        <ImageView onMouseClicked="#onNextClicked" fitHeight="40.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="82.0" onMouseClicked="#onNextClicked" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../3/icons/Arrow%20Right%202/Line.png" />
                            </image>
