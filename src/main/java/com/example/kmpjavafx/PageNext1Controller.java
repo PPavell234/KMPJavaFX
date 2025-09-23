@@ -17,6 +17,9 @@ import java.util.List;
 public class PageNext1Controller {
 
     @FXML
+    private javafx.scene.image.ImageView successImage;
+
+    @FXML
     private Label docInfoLabel;
 
     @FXML
@@ -45,10 +48,18 @@ public class PageNext1Controller {
         List<Integer> positions = kmp.search(documentText, pattern);
 
         if (!positions.isEmpty()) {
+            // ✅ показать картинку
+            if (successImage != null) {
+                successImage.setVisible(false);
+            }
+
             // ✅ Совпадения найдены → открываем следующую страницу
             openNextPage();
         } else {
-            showMessage("Совпадений не найдено");
+            if (successImage != null) {
+                successImage.setVisible(true);
+            }
+
         }
     }
 
