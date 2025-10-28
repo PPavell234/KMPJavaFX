@@ -21,3 +21,5 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+//jpackage --type exe --input . --dest . --main-jar KMPJavaFX_jar.jar --main-class com.example.kmpjavafx.Main --module-path "C:\Users\User\.jdks\javafx-jmods-25.0.1" --add-modules javafx.controls,javafx.fxml --win-shortcut --win-menu
