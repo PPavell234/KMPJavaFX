@@ -47,7 +47,7 @@
                         </ImageView>
                         <VBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="776.0">
                            <children>
-                              <Label  fx:id="matchesLabel" prefHeight="24.0" prefWidth="254.0" text="Количество совпадений по сочетанию букв" textFill="#909090">
+                              <Label fx:id="matchesLabel" prefHeight="24.0" prefWidth="254.0" text="Количество совпадений по сочетанию букв" textFill="#909090">
                                  <VBox.margin>
                                     <Insets top="3.0" />
                                  </VBox.margin>

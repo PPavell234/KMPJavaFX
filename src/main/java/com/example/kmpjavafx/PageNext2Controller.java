@@ -34,7 +34,7 @@ public class PageNext2Controller {
     private TextField searchField;
 
     @FXML
-    private ScrollPane scrollPane; // ✅ добавили для автопрокрутки
+    private ScrollPane scrollPane; //для автопрокрутки
 
     private String documentText = "";
 
@@ -77,7 +77,7 @@ public class PageNext2Controller {
         positions = kmp.search(documentText, pattern);
 
         if (positions.isEmpty()) {
-            // ✅ показываем весь документ белым текстом
+            //цвет шрифта (белый)
             Text all = new Text(documentText);
             all.setFill(Color.WHITE);
             textFlow.getChildren().add(all);
@@ -91,7 +91,7 @@ public class PageNext2Controller {
             return;
         }
 
-        // ✅ если совпадения найдены — скрываем картинку
+        // Отображение ошибки
         if (successImage != null) {
             successImage.setVisible(false);
         }

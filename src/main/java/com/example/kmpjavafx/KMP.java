@@ -1,6 +1,5 @@
 package com.example.kmpjavafx;
 
-import javafx.scene.control.TextArea;
 
 import java.util.ArrayList;
 import java.util.List;
