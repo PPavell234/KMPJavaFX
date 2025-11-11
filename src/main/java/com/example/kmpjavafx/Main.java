@@ -12,19 +12,26 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(
                 getClass().getResource("/com/example/kmpjavafx/pageNext2.fxml")
         );
+
         primaryStage.setTitle("Курсовая работа Павел");
-        primaryStage.setScene(new Scene(fxmlLoader.load(), 1200, 1100));
+        primaryStage.setScene(new Scene(fxmlLoader.load(), 1000, 1000));
+
+        // Ограничиваем размеры окна ДО показа
+        primaryStage.setMinHeight(1000);  // минимальная высота
+        primaryStage.setMaxHeight(1000); // максимальная высота
+        primaryStage.setMinWidth(800);   // ограничить ширину
+        primaryStage.setMaxWidth(1200);
+
         primaryStage.show();
 
 
-        // Добавляем слушателей для изменения размеров окна
-        primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.println("Ширина окна: " + newVal.intValue());
-        });
+        primaryStage.widthProperty().addListener((obs, oldVal, newVal) ->
+                System.out.println("Ширина окна: " + newVal.intValue())
+        );
 
-        primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.println("Высота окна: " + newVal.intValue());
-        });
+        primaryStage.heightProperty().addListener((obs, oldVal, newVal) ->
+                System.out.println("Высота окна: " + newVal.intValue())
+        );
     }
 
 
