@@ -15,6 +15,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class InfoController {
+
+    @FXML
+    private TextFlow textFlow;
+
+    /**
+     * Возврат на стартовую страницу
+     */
     @FXML
     private void BackIsInfoPage(MouseEvent event) {
         try {
@@ -25,19 +32,20 @@ public class InfoController {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+
+            // Добавляем слушатели изменения размеров
+            logStageSize(stage);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
-
-    @FXML
-    private TextFlow textFlow; // свяжи с fx:id в FXML
-
+    /**
+     * Копирование текста из TextFlow в буфер обмена
+     */
     @FXML
     private void CopyTextBuffer(MouseEvent event) {
-        // собрать текст из TextFlow
         StringBuilder sb = new StringBuilder();
         for (Node node : textFlow.getChildren()) {
             if (node instanceof Text) {
@@ -45,7 +53,6 @@ public class InfoController {
             }
         }
 
-        // положить в буфер обмена
         ClipboardContent content = new ClipboardContent();
         content.putString(sb.toString());
         Clipboard.getSystemClipboard().setContent(content);
@@ -53,4 +60,15 @@ public class InfoController {
         System.out.println("Текст скопирован в буфер!");
     }
 
+    /**
+     * Добавляет слушатели для вывода текущих размеров окна в консоль
+     */
+    private void logStageSize(Stage stage) {
+        stage.widthProperty().addListener((obs, oldVal, newVal) ->
+                System.out.println("Ширина окна: " + newVal.intValue())
+        );
+        stage.heightProperty().addListener((obs, oldVal, newVal) ->
+                System.out.println("Высота окна: " + newVal.intValue())
+        );
+    }
 }

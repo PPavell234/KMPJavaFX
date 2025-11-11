@@ -10,97 +10,58 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1000.0" maxWidth="1200.0" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.PdfPageController">
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <top>
-      <BorderPane prefHeight="1110.0" prefWidth="1200.0" styleClass="background" BorderPane.alignment="CENTER">
-         <center>
-            <BorderPane prefHeight="1175.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <BorderPane.margin>
-                  <Insets bottom="300.0" left="200.0" right="200.0" top="105.0" />
-               </BorderPane.margin>
-               <center>
-                  <VBox alignment="CENTER" prefHeight="416.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label styleClass="text-style-1" stylesheets="@../../../values/style.css" text="Загрузить PDF Файл">
-                           <padding>
-                              <Insets bottom="30.0" top="15.0" />
-                           </padding>
-                           <font>
-                              <Font size="43.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="dropTarget" fitHeight="396.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../2/Illustration.png" />
-                           </image></ImageView>
-                        <Label styleClass="text-style-1" text="Перетащите сюда PDF файл">
-                           <padding>
-                              <Insets bottom="30.0" top="15.0" />
-                           </padding>
-                        </Label>
-                           <Button fx:id="loadPdfButton" contentDisplay="CENTER" prefHeight="25.0" prefWidth="173.0" styleClass="button-style" stylesheets="@../../../values/style.css" text="Загрузить PDF" textFill="WHITE" />
-                     </children>
-                     <BorderPane.margin>
-                        <Insets bottom="4.0" top="258.0" />
-                     </BorderPane.margin>
-                     <padding>
-                        <Insets bottom="46.0" top="27.0" />
-                     </padding>
-                  </VBox>
-               </center>
-               <padding>
-                  <Insets top="-255.0" />
-               </padding>
-            </BorderPane>
-         </center>
-         <top>
-            <HBox BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="-127.0" />
-               </BorderPane.margin>
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="1206.0">
-                     <HBox.margin>
-                        <Insets bottom="-3.0" top="160.0" />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#openHelloView">
-                           <image>
-                              <Image url="@../../../3/light/help.png" />
-                           </image>
-                        </ImageView>
-                        <HBox prefHeight="100.0" prefWidth="16.0" />
-                        <Label prefHeight="31.0" prefWidth="226.0" text="Подробнее про алгоритм КМР " textFill="WHITE" onMouseClicked="#openHelloView">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="32.0" fitWidth="33.0" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../3/icon%2024px/chevron.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets left="55.0" top="1.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </HBox>
-         </top>
-      </BorderPane>
-   </top>
-   <bottom>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="-248.0" />
-         </BorderPane.margin>
-      </HBox>
-   </bottom>
+<BorderPane prefHeight="560.0" prefWidth="302.0" styleClass="background" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.PdfPageController">
+
+    <!-- Верхняя панель с навигацией -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="10" />
+            </padding>
+            <children>
+                <ImageView fitHeight="24" fitWidth="24" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../3/light/help.png" />
+                    </image>
+                </ImageView>
+                <Label onMouseClicked="#openHelloView" text="Подробнее про алгоритм КМР" textFill="WHITE">
+                    <font>
+                        <Font size="15" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="24" fitWidth="24" onMouseClicked="#openHelloView" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../3/icon%2024px/chevron.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Центральная часть -->
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <padding>
+                <Insets bottom="40" left="40" right="40" top="40" />
+            </padding>
+            <children>
+                <Label styleClass="text-style-1" text="Загрузить PDF Файл">
+                    <font>
+                        <Font size="36" />
+                    </font>
+                </Label>
+
+                <ImageView fx:id="dropTarget" fitHeight="300" fitWidth="300" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../2/Illustration.png" />
+                    </image>
+                </ImageView>
+
+                <Label styleClass="text-style-1" text="Перетащите сюда PDF файл" />
+
+                <Button fx:id="loadPdfButton" maxWidth="200" styleClass="button-style" text="Загрузить PDF" textFill="WHITE" />
+            </children>
+        </VBox>
+    </center>
+
 </BorderPane>
