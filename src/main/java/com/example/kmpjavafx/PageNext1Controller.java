@@ -1,5 +1,6 @@
 package com.example.kmpjavafx;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -72,11 +73,14 @@ public class PageNext1Controller {
             Parent root = loader.load();
 
             PageNext2Controller controller = loader.getController();
-            controller.setDocumentText(documentText, searchField.getText()); // ✅ передаём и текст, и шаблон
+            controller.setDocumentText(documentText, searchField.getText()); // передача данных
 
             Stage stage = (Stage) searchField.getScene().getWindow();
-            stage.setScene(new Scene(root, 1200, 1100));
+            stage.setScene(new Scene(root, 1000, 1100));
             stage.show();
+
+            //принудительный layout после показа новой сцены
+            Platform.runLater(() -> stage.getScene().getRoot().requestLayout());
 
         } catch (IOException e) {
             e.printStackTrace();
