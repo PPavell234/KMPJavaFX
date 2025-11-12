@@ -44,6 +44,11 @@ public class PageNext2Controller {
     // вызывается из PageNext1Controller
     public void setDocumentText(String text, String pattern) {
         this.documentText = text;
+
+        if (searchField != null) {
+            searchField.setText(pattern); // заполняем поле на второй странице из страницы Page 1
+        }
+
         findMatches(pattern);
     }
 

@@ -50,12 +50,12 @@ public class PageNext1Controller {
         List<Integer> positions = kmp.search(documentText, pattern);
 
         if (!positions.isEmpty()) {
-            // ✅ показать картинку
+            //показать картинку
             if (successImage != null) {
                 successImage.setVisible(false);
             }
 
-            // ✅ Совпадения найдены → открываем следующую страницу
+            // Совпадения найдены → открываем следующую страницу
             openNextPage();
         } else {
             if (successImage != null) {
