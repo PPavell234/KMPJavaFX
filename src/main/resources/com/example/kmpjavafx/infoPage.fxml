@@ -4,83 +4,121 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1200.0" styleClass="background" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.InfoController">
-    <top>
-        <HBox prefHeight="143.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-            <children>
-                <ImageView fitHeight="121.0" fitWidth="139.0" onMouseClicked="#BackIsInfoPage" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../1/Back.png" />
-                    </image>
-                    <HBox.margin>
-                        <Insets top="3.0" />
-                    </HBox.margin>
-                </ImageView>
-            </children>
-        </HBox>
-    </top>
-    <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="background-two" stylesheets="@../../../values/style.css" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="1000.0" maxWidth="1200.0" stylesheets="@../../../values/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kmpjavafx.InfoController">
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets bottom="85.0" left="179.0" right="179.0" top="41.0" />
+                <Insets top="-248.0" />
             </BorderPane.margin>
-            <children>
-                <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                    <VBox.margin>
-                        <Insets bottom="2.0" left="99.0" right="99.0" top="26.0" />
-                    </VBox.margin>
-                    <children>
-                        <HBox prefHeight="100.0" prefWidth="536.0" />
-                        <ImageView fitHeight="27.0" fitWidth="50.0" onMouseClicked="#CopyTextBuffer" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../1/Icon=copy,%20Component=Additional%20Icons.png" />
-                            </image>
-                        </ImageView>
-                        <HBox prefHeight="100.0" prefWidth="22.0" />
-                        <ImageView fitHeight="27.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../1/Icon=share-alt,%20Component=Additional%20Icons.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="663.0" prefWidth="646.0" styleClass="background-two">
-                    <children>
-                        <ScrollPane fitToWidth="true" prefHeight="300.0" prefWidth="674.0">
-                            <content>
-                                <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
-                                    <Text fill="#e1e1e1" text="алгоритм Кнута-Морриса-Пратта (КМП).&#10;&#10;Алгоритм Кнута–Морриса–Пратта, который реализован в твоём классе KMP, решает задачу поиска подстроки в строке, то есть нахождения всех вхождений некоторого шаблона в большом тексте. Идея этого алгоритма состоит в том, чтобы не тратить время на повторные проверки символов, которые мы уже сравнивали, а использовать заранее подготовленную информацию о самом шаблоне.
-
-Чтобы это сделать, строится вспомогательный массив, называемый LPS (longest proper prefix which is also suffix — наибольший собственный префикс, совпадающий с суффиксом). Для каждой позиции в шаблоне этот массив говорит, сколько символов из начала шаблона совпадает с концом его подстроки до этой позиции. Этот массив рассчитывается один раз перед поиском. Благодаря LPS мы можем, встретив несовпадение, не возвращаться в самое начало шаблона, а откатиться только на ту позицию, где есть шанс продолжить поиск, и таким образом избежать повторных проверок.
-
-Дальше начинается сам поиск. Два индекса бегут по тексту и по шаблону. Если символы совпадают, оба индекса сдвигаются вперёд. Если символы шаблона все проверены и найдено полное совпадение, алгоритм фиксирует позицию в тексте и использует массив LPS, чтобы определить, с какой позиции в шаблоне продолжить поиск дальше. Если же встретилось несовпадение, то, если мы уже сопоставили несколько символов шаблона, алгоритм не возвращается к первому символу шаблона, а использует значение LPS для того, чтобы «подвинуть» шаблон и попробовать сравнение снова. Если совпадений ещё не было (индекс в шаблоне равен нулю), то двигается только индекс по тексту.
-
-В результате весь текст проходит за линейное время — каждый символ обрабатывается максимум пару раз. Построение массива LPS тоже линейное по длине шаблона. Поэтому общая сложность алгоритма составляет O(n + m), где n — длина текста, а m — длина шаблона. Это гораздо эффективнее наивного алгоритма, который в худшем случае работает за O(n·m).
-
-Таким образом, твой класс KMP сначала строит массив LPS для шаблона, а потом использует его при поиске по тексту, находя все вхождения шаблона и возвращая их позиции. Алгоритм очень хорошо подходит для ситуаций, когда нужно многократно искать одну и ту же подстроку в большом объёме текста — например, при работе с PDF, логами или даже при анализе биологических последовательностей." wrappingWidth="640" />
-
-                                    <Text fill="#e1e1e1" text="&#10;&#10;Главное отличие от наивного поиска КМП не тратит время на повторные проверки символов. Он 'помнит', что часть шаблона уже совпала, и использует LPS-массив, чтобы не начинать поиск заново..;." wrappingWidth="640" />
-
-
+        </HBox>
+    </bottom>
+    <center>
+        <BorderPane prefHeight="1110.0" prefWidth="1200.0" styleClass="background" BorderPane.alignment="CENTER">
+            <center>
+                <BorderPane prefHeight="1175.0" prefWidth="967.0" BorderPane.alignment="CENTER">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <BorderPane.margin>
+                        <Insets bottom="439.0" left="200.0" right="189.0" top="100.0" />
+                    </BorderPane.margin>
+                    <center>
+                        <VBox alignment="CENTER" prefHeight="1079.0" prefWidth="783.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <HBox prefHeight="52.0" prefWidth="787.0" />
+                                <VBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="776.0" />
+                                <HBox alignment="CENTER" spacing="10">
                                     <opaqueInsets>
                                         <Insets />
                                     </opaqueInsets>
+                                </HBox>
+                                <AnchorPane>
+                                    <children>
+                                        <HBox fx:id="fixedBox" layoutX="-83.0" layoutY="600.0" maxWidth="1213.0" minWidth="348.0" prefHeight="151.0" prefWidth="333.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="-55.0" AnchorPane.leftAnchor="-83.0" AnchorPane.topAnchor="11.0" />
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets bottom="-436.0" top="-17.0" />
+                            </BorderPane.margin>
+                            <padding>
+                                <Insets bottom="-584.0" top="57.0" />
+                            </padding>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </VBox>
+                    </center>
+                    <padding>
+                        <Insets top="-255.0" />
+                    </padding>
+                    <top>
+                        <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="704.0" prefWidth="787.0" BorderPane.alignment="CENTER">
+                            <content>
+                                <TextFlow fx:id="textFlow" lineSpacing="11.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <children>
+                                        <Text fill="#e1e1e1" />
+                                    </children>
                                 </TextFlow>
                             </content>
+                            <BorderPane.margin>
+                                <Insets bottom="-743.0" top="107.0" />
+                            </BorderPane.margin>
                         </ScrollPane>
+                    </top>
+                </BorderPane>
+            </center>
+            <top>
+                <HBox prefHeight="177.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets top="-127.0" />
+                    </BorderPane.margin>
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="1206.0">
+                            <HBox.margin>
+                                <Insets bottom="-3.0" left="-55.0" top="122.0" />
+                            </HBox.margin>
+                            <children>
+                                <ImageView fitHeight="132.0" fitWidth="124.0" onMouseClicked="#BackIsInfoPage" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../1/Back.png" />
+                                    </image>
+                                </ImageView>
+                                <HBox prefHeight="100.0" prefWidth="16.0" />
+                            </children>
+                            <padding>
+                                <Insets left="55.0" top="1.0" />
+                            </padding>
+                        </HBox>
                     </children>
-                    <VBox.margin>
-                        <Insets left="98.0" right="98.0" />
-                    </VBox.margin>
                 </HBox>
-            </children>
-        </VBox>
+            </top>
+            <left>
+                <VBox prefHeight="864.0" prefWidth="130.0" BorderPane.alignment="TOP_CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="403.0" left="39.0" right="-148.0" top="271.0" />
+                    </BorderPane.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets right="93.0" top="42.0" />
+                    </padding>
+                </VBox>
+            </left>
+        </BorderPane>
     </center>
 </BorderPane>
